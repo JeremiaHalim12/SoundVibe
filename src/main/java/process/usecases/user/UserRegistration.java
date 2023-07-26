@@ -1,4 +1,4 @@
-package process.usecases;
+package process.usecases.user;
 
 public class UserRegistration {
     private String userEmail;
