@@ -60,11 +60,6 @@
             </Label>
          </children>
       </VBox>
-      <ImageView fitHeight="133.0" fitWidth="117.0" layoutX="8.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../Pemrograman%20Terapan/SoundVibe/src/asset/yura.jpg" />
-         </image>
-      </ImageView>
       <Label layoutX="27.0" layoutY="177.0" text="NOW PLAYING" textFill="WHITE" />
       <Label layoutX="8.0" layoutY="312.0" text="Harus Bahagia" textFill="WHITE">
          <font>
@@ -111,7 +106,7 @@
       </GridPane>
       <ScrollPane layoutX="137.0" layoutY="114.0" prefHeight="186.0" prefWidth="421.0">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="334.0" prefWidth="173.0">
                <children>
                   <GridPane layoutY="2.0" prefHeight="179.0" prefWidth="393.0">
                     <columnConstraints>
@@ -490,5 +485,10 @@
       </ScrollPane>
       <ProgressBar layoutX="143.0" layoutY="331.0" prefHeight="18.0" prefWidth="407.0" progress="0.0" />
       <Slider layoutX="506.0" layoutY="372.0" prefHeight="14.0" prefWidth="89.0" />
+      <ImageView fitHeight="116.0" fitWidth="116.0" layoutX="9.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../asset/download.jpeg" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
