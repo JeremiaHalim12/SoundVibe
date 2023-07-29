@@ -1,5 +1,6 @@
 package model;
 
+//test branch
 public class Album {
     private String albumName;
     private String albumCover;
