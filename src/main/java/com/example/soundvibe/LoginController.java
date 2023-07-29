@@ -26,5 +26,6 @@ public class LoginController {
         loginstage.initModality(Modality.APPLICATION_MODAL);
         loginstage.setTitle("SoundVibe");
         loginstage.show();
+//        test
     }
 }
