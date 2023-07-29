@@ -1,5 +1,5 @@
 package model;
-
+// INI ARTIST.JAVA
 public class Artist {
     private String artistName;
     private String artistPhoto;
