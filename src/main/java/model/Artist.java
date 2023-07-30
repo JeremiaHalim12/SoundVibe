@@ -4,6 +4,10 @@ public class Artist {
     private String artistName;
     private String artistPhoto;
 
+    public Artist(String artistName) {
+        this.artistName = artistName;
+    }
+
     public String getArtistName() {
         return artistName;
     }
