@@ -6,6 +6,11 @@ public class Song {
     private String songGenre;
     private String songDuration;
 
+    public Song(String songTitle, String songDuration) {
+        this.songTitle = songTitle;
+        this.songDuration = songDuration;
+    }
+
     public String getSongTitle() {
         return songTitle;
     }

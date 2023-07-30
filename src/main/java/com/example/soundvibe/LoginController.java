@@ -10,12 +10,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
+import model.Artist;
+
 
 import java.io.IOException;
 
 public class LoginController {
     @FXML
     Button button1;
+
 
     public void buttonAction(ActionEvent ex) throws IOException {
         Stage loginstage = new Stage();
@@ -26,6 +30,7 @@ public class LoginController {
         loginstage.initModality(Modality.APPLICATION_MODAL);
         loginstage.setTitle("SoundVibe");
         loginstage.show();
-//        test
     }
+
+
 }

@@ -5,6 +5,10 @@ public class Album {
     private String albumName;
     private String albumCover;
 
+    public Album(String albumName) {
+        this.albumName = albumName;
+    }
+
     public String getAlbumName() {
         return albumName;
     }
