@@ -7,6 +7,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import model.User;
+import process.usecases.user.UserLogin;
+
 import java.io.IOException;
 
 public class LoginController {
@@ -27,11 +30,31 @@ public class LoginController {
 //    }
 
     // ACTION UNTUK CLOSE KETIKA USERNAME DAN PASSWORD BENAR
+//    public void buttonLoggedInAction(ActionEvent event) {
+//        String username = textFieldUsername.getText().trim();
+//        String password = textFieldPassword.getText().trim();
+//        // GANTI USERNAME DAN PASSWORD DISINI
+//        if (username.equals("2072001") && password.equals("2072001")) {
+//            Stage currentStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+//            currentStage.close();
+//        } else {
+//            Alert alert = new Alert(AlertType.ERROR);
+//            alert.setTitle("Login Error");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Invalid username or password. Please try again.");
+//            alert.showAndWait();
+//        }
+//    }
+
+    // USER DAPET DARI UserLogin usecase
     public void buttonLoggedInAction(ActionEvent event) {
         String username = textFieldUsername.getText().trim();
         String password = textFieldPassword.getText().trim();
-        // GANTI USERNAME DAN PASSWORD DISINI
-        if (username.equals("2072001") && password.equals("2072001")) {
+
+        UserLogin userLogin = new UserLogin();
+        User user = userLogin.execute(username, password);
+
+        if (user != null) {
             Stage currentStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
             currentStage.close();
         } else {
