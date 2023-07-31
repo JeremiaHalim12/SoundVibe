@@ -7,6 +7,10 @@ public class User {
     private String userPassword;
     private String userFriends;
     private String userLikedSong;
+    public User(String userEmail, String userPassword) {
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+    }
 
     public String getUserName() {
         return userName;
