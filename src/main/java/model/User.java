@@ -1,6 +1,7 @@
 package model;
 
 public class User {
+    private String userId;
     private String userName;
     private String userEmail;
     private String userPassword;
@@ -45,5 +46,13 @@ public class User {
 
     public void setUserLikedSong(String userLikedSong) {
         this.userLikedSong = userLikedSong;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

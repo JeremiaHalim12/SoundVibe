@@ -1,6 +1,7 @@
 package model;
 
 public class Song {
+    private String songId;
     private String songTitle;
     private String songCover;
     private String songGenre;
@@ -41,5 +42,13 @@ public class Song {
 
     public void setSongDuration(String songDuration) {
         this.songDuration = songDuration;
+    }
+
+    public String getSongId() {
+        return songId;
+    }
+
+    public void setSongId(String songId) {
+        this.songId = songId;
     }
 }

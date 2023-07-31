@@ -4,8 +4,12 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.event.ActionEvent;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Album;
 import model.Artist;
@@ -17,7 +21,7 @@ public class SoundVibe extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SoundVibe.class.getResource("LoginPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SoundVibe.class.getResource("SoundVibe.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("Login to SoundVibe");
         stage.setScene(scene);
@@ -133,6 +137,23 @@ public class SoundVibe extends Application {
             vbox.getChildren().add(label);
         }
     }
+
+    // BUTTON UNTUK SIGNIN
+    @FXML
+    Button SignIn;
+    @FXML
+    public void signInButtonAction(ActionEvent event) throws IOException {
+        Stage loginStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(SoundVibe.class.getResource("LoginPage.fxml"));
+        Parent root = loader.load();
+        Scene newScene = new Scene(root, 600, 400);
+        loginStage.setScene(newScene);
+        loginStage.initModality(Modality.APPLICATION_MODAL);
+        loginStage.setTitle("Login Page");
+        loginStage.show();
+    }
+
+
 
     public static void main(String[] args) {
         launch();
