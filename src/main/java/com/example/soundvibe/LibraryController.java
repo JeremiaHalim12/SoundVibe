@@ -1,48 +1,22 @@
 package com.example.soundvibe;
 
-import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.Album;
+import model.Song;
 
 import java.io.IOException;
 
-public class SoundVibe extends Application {
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SoundVibe.class.getResource("LoginPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("SoundVibe");
-        stage.setScene(scene);
-        stage.show();
-//        test
-    }
+public class LibraryController {
 
-<<<<<<< Updated upstream
-=======
-    // ARTIST
-    @FXML
-    private VBox vboxArtists;
-
-    private final Artist[] artists = {
-            new Artist("Afgan"),
-            new Artist("Coldplay"),
-            new Artist("Yura Yunita"),
-            new Artist("Tulus"),
-            new Artist("Tulus"),
-            new Artist("Juicy Luicy"),
-            new Artist("Hivi!"),
-            new Artist("Kodaline"),
-            new Artist("NIKI"),
-            new Artist("JVKE"),
-            new Artist("Coldplay"),
-            new Artist("Raim Laode"),
-            new Artist("Yura Yunita"),
-            new Artist("Soegi Bornean"),
-            new Artist("Sal Priadi"),
-    };
-
-    // SONGS
     @FXML
     private VBox vboxSongs;
 
@@ -64,7 +38,7 @@ public class SoundVibe extends Application {
             new Song("Serta Mulia","3:09"),
     };
 
-    // ALBUMS
+    // Album
     @FXML
     private VBox vboxAlbums;
 
@@ -86,16 +60,13 @@ public class SoundVibe extends Application {
             new Album("Serta Mulia"),
     };
 
-
     // DURATIONS
     @FXML
     private VBox vboxDurations;
 
-
     // INITIALIZE VBOX CONTENT FROM ARRAY
     @FXML
     public void initialize() {
-        addLabelsToVBox(vboxArtists, artists);
         addLabelsToVBox(vboxSongs, songs);
         addLabelsToVBox(vboxAlbums, albums);
         addDurationLabels(vboxDurations, songs);
@@ -103,12 +74,7 @@ public class SoundVibe extends Application {
 
     private void addLabelsToVBox(VBox vbox, Object[] data) {
         for (Object item : data) {
-            if (item instanceof Artist) {
-                Artist artist = (Artist) item;
-                Label label = new Label(artist.getArtistName());
-                label.setStyle("-fx-padding: 0 0 5 0;");
-                vbox.getChildren().add(label);
-            } else if (item instanceof Song) {
+            if (item instanceof Song) {
                 Song song = (Song) item;
                 Label label = new Label(song.getSongTitle());
                 label.setStyle("-fx-padding: 0 0 5 0;");
@@ -129,6 +95,7 @@ public class SoundVibe extends Application {
             vbox.getChildren().add(label);
         }
     }
+
 
     // Button SignIn
     @FXML
@@ -152,12 +119,34 @@ public class SoundVibe extends Application {
     @FXML
     private void signupButtonAction() {
         try {
-            // Load LoginPage.fxml
+            // Load SignUpPage.fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUpPage.fxml"));
             Parent loginPageParent = loader.load();
 
             // Access the current stage
             Stage currentStage = (Stage) SignUp.getScene().getWindow();
+
+            // Set the new scene on the current stage
+            currentStage.setScene(new Scene(loginPageParent));
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Handle any exception that might occur during the loading of the LoginPage.fxml
+        }
+    }
+
+    // Button Home (Go to Home Page)
+    @FXML
+    Button homeButton;
+
+    @FXML
+    private void homeButtonAction() {
+        try {
+            // Load SoundVibe.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SoundVibe.fxml"));
+            Parent loginPageParent = loader.load();
+
+            // Access the current stage
+            Stage currentStage = (Stage) homeButton.getScene().getWindow();
 
             // Set the new scene on the current stage
             currentStage.setScene(new Scene(loginPageParent));
@@ -189,28 +178,6 @@ public class SoundVibe extends Application {
         }
     }
 
-    // Button Library (Go to Library Page)
-    @FXML
-    Button libraryButton;
-
-    @FXML
-    private void libraryButtonAction() {
-        try {
-            // Load LibraryPage.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LibraryPage.fxml"));
-            Parent loginPageParent = loader.load();
-
-            // Access the current stage
-            Stage currentStage = (Stage) libraryButton.getScene().getWindow();
-
-            // Set the new scene on the current stage
-            currentStage.setScene(new Scene(loginPageParent));
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Handle any exception that might occur during the loading of the LoginPage.fxml
-        }
-    }
-
     // Button Liked Song (Go to Liked Song Page)
     @FXML
     Button likedSongButton;
@@ -233,12 +200,4 @@ public class SoundVibe extends Application {
         }
     }
 
-
-
-
-
->>>>>>> Stashed changes
-    public static void main(String[] args) {
-        launch();
-    }
 }

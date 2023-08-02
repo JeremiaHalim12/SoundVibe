@@ -24,6 +24,7 @@
             <Font name="Bauhaus 93" size="30.0" />
          </font>
       </Label>
+<<<<<<< Updated upstream
       <VBox layoutX="8.0" layoutY="61.0" prefHeight="62.0" prefWidth="100.0">
          <children>
             <Label text="Home" textFill="WHITE">
@@ -60,17 +61,32 @@
             </Label>
          </children>
       </VBox>
+=======
+>>>>>>> Stashed changes
       <Label layoutX="27.0" layoutY="177.0" text="NOW PLAYING" textFill="WHITE" />
       <Label layoutX="8.0" layoutY="312.0" text="Harus Bahagia" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+<<<<<<< Updated upstream
       <Label layoutX="8.0" layoutY="329.0" text="Yura Yunita" textFill="WHITE" />
       <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="34.0" layoutX="175.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" width="248.0" />
       <Button layoutX="366.0" layoutY="12.0" mnemonicParsing="false" text="Search" />
       <Label layoutX="487.0" layoutY="17.0" text="Sign In" textFill="WHITE" underline="true" />
       <Label layoutX="537.0" layoutY="16.0" text="Sign Up" textFill="WHITE" underline="true" />
+=======
+      <VBox layoutX="4.0" layoutY="53.0" prefHeight="90.0" prefWidth="90.0">
+         <children>
+            <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Home" />
+            <Button fx:id="libraryButton" mnemonicParsing="false" onAction="#libraryButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Library" />
+            <Button fx:id="likedSongButton" mnemonicParsing="false" onAction="#likedSongButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Liked Song" />
+            <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Playlist" />
+         </children>
+      </VBox>
+      <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="34.0" layoutX="167.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="248.0" />
+      <Button layoutX="358.0" layoutY="10.0" mnemonicParsing="false" text="Search" />
+>>>>>>> Stashed changes
       <GridPane layoutX="134.0" layoutY="80.0" prefHeight="34.0" prefWidth="447.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -108,7 +124,11 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="334.0" prefWidth="173.0">
                <children>
+<<<<<<< Updated upstream
                   <GridPane layoutY="2.0" prefHeight="179.0" prefWidth="393.0">
+=======
+                  <GridPane layoutX="2.0" layoutY="2.0" prefHeight="179.0" prefWidth="393.0">
+>>>>>>> Stashed changes
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -119,6 +139,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
+<<<<<<< Updated upstream
                         <VBox prefHeight="160.0" prefWidth="98.0">
                            <children>
                               <Label text="Panah Asmara">
@@ -227,6 +248,9 @@
                                     <Insets bottom="5.0" />
                                  </padding></Label>
                            </children>
+=======
+                        <VBox fx:id="vboxSongs" prefHeight="160.0" prefWidth="98.0">
+>>>>>>> Stashed changes
                            <GridPane.margin>
                               <Insets top="150.0" />
                            </GridPane.margin>
@@ -310,7 +334,7 @@
                               </Label>
                            </children>
                            <GridPane.margin>
-                              <Insets top="150.0" />
+                              <Insets left="6.0" top="150.0" />
                            </GridPane.margin>
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
@@ -483,12 +507,18 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <ProgressBar layoutX="143.0" layoutY="331.0" prefHeight="18.0" prefWidth="407.0" progress="0.0" />
+      <ProgressBar layoutX="143.0" layoutY="331.0" prefHeight="18.0" prefWidth="421.0" progress="0.0" />
       <Slider layoutX="506.0" layoutY="372.0" prefHeight="14.0" prefWidth="89.0" />
       <ImageView fitHeight="116.0" fitWidth="116.0" layoutX="9.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../asset/download.jpeg" />
+            <Image url="D:\javaFX\SoundVibe\src\asset\download.jpeg" />
          </image>
       </ImageView>
+<<<<<<< Updated upstream
+=======
+      <Button fx:id="signIn" layoutX="480.0" layoutY="13.0" mnemonicParsing="false" onAction="#signInButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Sign In" underline="true" />
+      <Button fx:id="SignUp" layoutX="532.0" layoutY="13.0" mnemonicParsing="false" onAction="#signupButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Sign Up" underline="true" />
+      <Button fx:id="artistBottom" layoutX="1.0" layoutY="327.0" mnemonicParsing="false" onAction="#artistButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Yura Yunita" />
+>>>>>>> Stashed changes
    </children>
 </Pane>
