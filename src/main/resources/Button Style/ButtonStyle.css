@@ -1,0 +1,7 @@
+.button {
+    -fx-underline: false;
+}
+
+.button:hover {
+    -fx-underline: true;
+}
