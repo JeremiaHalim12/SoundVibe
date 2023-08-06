@@ -21,21 +21,16 @@ public class ArtistController {
     private VBox vboxSongs;
 
     private final Song[] songs = {
-            new Song("Panah Asmara","4:34"),
-            new Song("The Scientist","5:09"),
-            new Song("Harus Bahagia","2:53"),
-            new Song("Hati - Hati di Jalan","4:02"),
-            new Song("Monokrom","3:34"),
-            new Song("Lantas","3:54"),
-            new Song("Kereta Kencan","4:17"),
-            new Song("All I Want","5:05"),
-            new Song("lowkey","2:51"),
-            new Song("golden hour","3:29"),
-            new Song("Yellow","4:26"),
-            new Song("Komang","3:42"),
+            new Song("Tutur Batin","3:35"),
+            new Song("Dunia Tipu-Tipu","3:38"),
+            new Song("Cinta Dan Rahasia","4:22"),
+            new Song("Jalan Pulang","3:36"),
+            new Song("Berawal Dari Tatap","4:21"),
+            new Song("Intuisi","4:00"),
+            new Song("Lihatlah Lebih Dekat","4:24"),
             new Song("Tenang","4:07"),
-            new Song("Asmalibrasi","4:14"),
-            new Song("Serta Mulia","3:09"),
+            new Song("Harus Bahagia","2:53"),
+            new Song("Reflection - From \"Mulan\"","3:43")
     };
 
     // Album
@@ -43,21 +38,16 @@ public class ArtistController {
     private VBox vboxAlbums;
 
     private final Album[] albums = {
-            new Album("DEKADE"),
-            new Album("A Rush of Blood to the Head"),
-            new Album("Harus Bahagia"),
-            new Album("Manusia"),
-            new Album("Monokrom"),
-            new Album("Sentimental"),
-            new Album("Kereta Kencan"),
-            new Album("In a Perfect World"),
-            new Album("lowkey"),
-            new Album("this is what falling in love feels like"),
-            new Album("Parachutes"),
-            new Album("Komang"),
-            new Album("Tenang"),
-            new Album("Asmalibrasi"),
-            new Album("Serta Mulia"),
+            new Album("Tutur Batih"),
+            new Album("Tutur Batin"),
+            new Album("YURA"),
+            new Album(""),
+            new Album("YURA"),
+            new Album("Merakit"),
+            new Album(""),
+            new Album("Tutur Batin"),
+            new Album(""),
+            new Album("")
     };
 
     // DURATIONS
