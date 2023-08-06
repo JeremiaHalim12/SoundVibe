@@ -1,11 +1,11 @@
 package com.example.soundvibe;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.event.ActionEvent;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -240,7 +240,6 @@ public class SoundVibe extends Application {
             // Handle any exception that might occur during the loading of the LoginPage.fxml
         }
     }
-
 
 
     public static void main(String[] args) {

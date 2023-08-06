@@ -118,7 +118,8 @@
       <Slider layoutX="506.0" layoutY="372.0" prefHeight="14.0" prefWidth="89.0" />
       <ImageView fitHeight="116.0" fitWidth="116.0" layoutX="9.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="D:\KULIAH\SA 2\Pemrograman Terapan\SoundVibe\src\asset\download.jpeg" />
+<!--            <Image url="D:\KULIAH\SA 2\Pemrograman Terapan\SoundVibe\src\asset\download.jpeg" />-->
+             <Image url="D:\JavaFX\SoundVibe\src\asset\download.jpeg" />
          </image>
       </ImageView>
       <Button fx:id="signIn" layoutX="480.0" layoutY="13.0" mnemonicParsing="false" onAction="#signInButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Sign In" underline="true" />
