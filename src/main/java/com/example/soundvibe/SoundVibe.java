@@ -14,6 +14,9 @@ import javafx.stage.Stage;
 import model.Album;
 import model.Artist;
 import model.Song;
+import process.usecases.album.AlbumGet;
+import process.usecases.artist.ArtistGet;
+import process.usecases.song.SongGet;
 
 import java.io.IOException;
 
@@ -28,76 +31,14 @@ public class SoundVibe extends Application {
         stage.show();
     }
 
-    // ARTIST
+    // VBOX ARTIST, SONG, DURATION, ALBUM
     @FXML
-    private VBox vboxArtists;
+    private VBox vboxArtists, vboxSongs, vboxDurations, vboxAlbums;
 
-    private final Artist[] artists = {
-            new Artist("Afgan"),
-            new Artist("Coldplay"),
-            new Artist("Yura Yunita"),
-            new Artist("Tulus"),
-            new Artist("Tulus"),
-            new Artist("Juicy Luicy"),
-            new Artist("Hivi!"),
-            new Artist("Kodaline"),
-            new Artist("NIKI"),
-            new Artist("JVKE"),
-            new Artist("Coldplay"),
-            new Artist("Raim Laode"),
-            new Artist("Yura Yunita"),
-            new Artist("Soegi Bornean"),
-            new Artist("Sal Priadi"),
-    };
-
-    // SONGS
-    @FXML
-    private VBox vboxSongs;
-
-    private final Song[] songs = {
-            new Song("Panah Asmara","4:34"),
-            new Song("The Scientist","5:09"),
-            new Song("Harus Bahagia","2:53"),
-            new Song("Hati - Hati di Jalan","4:02"),
-            new Song("Monokrom","3:34"),
-            new Song("Lantas","3:54"),
-            new Song("Kereta Kencan","4:17"),
-            new Song("All I Want","5:05"),
-            new Song("lowkey","2:51"),
-            new Song("golden hour","3:29"),
-            new Song("Yellow","4:26"),
-            new Song("Komang","3:42"),
-            new Song("Tenang","4:07"),
-            new Song("Asmalibrasi","4:14"),
-            new Song("Serta Mulia","3:09"),
-    };
-
-    // ALBUMS
-    @FXML
-    private VBox vboxAlbums;
-
-    private final Album[] albums = {
-            new Album("DEKADE"),
-            new Album("A Rush of Blood to the Head"),
-            new Album("Harus Bahagia"),
-            new Album("Manusia"),
-            new Album("Monokrom"),
-            new Album("Sentimental"),
-            new Album("Kereta Kencan"),
-            new Album("In a Perfect World"),
-            new Album("lowkey"),
-            new Album("this is what falling in love feels like"),
-            new Album("Parachutes"),
-            new Album("Komang"),
-            new Album("Tenang"),
-            new Album("Asmalibrasi"),
-            new Album("Serta Mulia"),
-    };
-
-
-    // DURATIONS
-    @FXML
-    private VBox vboxDurations;
+    // GET FROM USECASES
+    private final Artist[] artists = new ArtistGet().getArtists();
+    private final Song[] songs = new SongGet().getSongs();
+    private final Album[] albums = new AlbumGet().getAlbums();
 
 
     // INITIALIZE VBOX CONTENT FROM ARRAY
