@@ -29,7 +29,7 @@
             <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Home" />
             <Button fx:id="libraryButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#libraryButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Library" />
             <Button fx:id="likedSongButton" layoutX="10.0" layoutY="35.0" mnemonicParsing="false" onAction="#likedSongButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Liked Song" />
-            <Button fx:id="SignUp1111" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" onAction="#signupButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Playlist" />
+            <Button layoutX="10.0" layoutY="60.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Playlist" />
          </children>
       </VBox>
       <Label layoutX="27.0" layoutY="177.0" text="NOW PLAYING" textFill="WHITE" />
