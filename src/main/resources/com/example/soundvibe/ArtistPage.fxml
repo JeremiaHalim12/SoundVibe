@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +14,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0f141d;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soundvibe.ArtistController">
@@ -31,8 +31,8 @@
                 <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Playlist" />
             </children>
         </VBox>
-        <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="34.0" layoutX="167.0" layoutY="5.0" stroke="BLACK" strokeType="INSIDE" width="248.0" />
-        <Button layoutX="358.0" layoutY="10.0" mnemonicParsing="false" text="Search" />
+      <TextField layoutX="190.0" layoutY="11.0" prefHeight="30.0" prefWidth="242.0" />
+        <Button layoutX="377.0" layoutY="14.0" mnemonicParsing="false" text="Search" />
         <ProgressBar layoutX="143.0" layoutY="331.0" prefHeight="18.0" prefWidth="438.0" progress="0.0" />
         <Slider layoutX="506.0" layoutY="372.0" prefHeight="14.0" prefWidth="89.0" />
         <Label layoutX="143.0" layoutY="51.0" text="YURA YUNITA" textFill="WHITE">
@@ -49,7 +49,7 @@
         <ImageView fitHeight="116.0" fitWidth="116.0" layoutX="9.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
             <image>
 <!--                <Image url="D:\KULIAH\SA 2\Pemrograman Terapan\SoundVibe\src\asset\download.jpeg" />-->
-                <Image url="D:\JavaFX\SoundVibe\src\asset\download.jpeg" />
+                <Image url="D:\KULIAH\SA 2\Pemrograman Terapan\SoundVibe\src\asset\download.jpeg" />
             </image>
         </ImageView>
         <ScrollPane layoutX="143.0" layoutY="104.0" prefHeight="200.0" prefWidth="438.0">
