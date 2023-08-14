@@ -49,8 +49,8 @@
         </Label>
         <ImageView fitHeight="116.0" fitWidth="116.0" layoutX="9.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
             <image>
+                <Image url="D:\javaFX\SoundVibe\src\asset\download.jpeg" />
 <!--                <Image url="D:\KULIAH\SA 2\Pemrograman Terapan\SoundVibe\src\asset\download.jpeg" />-->
-                <Image url="D:\KULIAH\SA 2\Pemrograman Terapan\SoundVibe\src\asset\download.jpeg" />
             </image>
         </ImageView>
         <ScrollPane layoutX="143.0" layoutY="104.0" prefHeight="200.0" prefWidth="438.0">

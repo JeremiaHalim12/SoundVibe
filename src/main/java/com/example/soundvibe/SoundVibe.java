@@ -36,9 +36,9 @@ public class SoundVibe extends Application {
     private VBox vboxArtists, vboxSongs, vboxDurations, vboxAlbums;
 
     // GET FROM USECASES
-    private final Artist[] artists = new ArtistGet().getArtists();
-    private final Song[] songs = new SongGet().getSongs();
-    private final Album[] albums = new AlbumGet().getAlbums();
+    private final Artist[] artists = new ArtistGet().exexuteArtistGet();
+    private final Song[] songs = new SongGet().executeSongGet();
+    private final Album[] albums = new AlbumGet().executeAlbumGet();
 
 
     // INITIALIZE VBOX CONTENT FROM ARRAY
