@@ -38,16 +38,16 @@ public class ArtistController {
     private VBox vboxAlbums;
 
     private final Album[] albums = {
-            new Album("Tutur Batih"),
+            new Album("Tutur Batin"),
             new Album("Tutur Batin"),
             new Album("YURA"),
-            new Album(""),
+            new Album("Jalan Pulang"),
             new Album("YURA"),
             new Album("Merakit"),
-            new Album(""),
+            new Album("Lihatlah Lebih Dekat"),
             new Album("Tutur Batin"),
-            new Album(""),
-            new Album("")
+            new Album("Merakit"),
+            new Album("Various Artist")
     };
 
     // DURATIONS
