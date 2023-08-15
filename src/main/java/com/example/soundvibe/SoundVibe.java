@@ -1,6 +1,8 @@
 package com.example.soundvibe;
 
+import DAO.UserDAO;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,12 +10,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Album;
 import model.Artist;
 import model.Song;
+import model.User;
 import process.usecases.album.AlbumGet;
 import process.usecases.artist.ArtistGet;
 import process.usecases.song.SongGet;
@@ -31,6 +35,9 @@ public class SoundVibe extends Application {
         stage.show();
     }
 
+    @FXML
+    private ListView list1;
+
     // VBOX ARTIST, SONG, DURATION, ALBUM
     @FXML
     private VBox vboxArtists, vboxSongs, vboxDurations, vboxAlbums;
@@ -41,6 +48,7 @@ public class SoundVibe extends Application {
     private final Album[] albums = new AlbumGet().executeAlbumGet();
 
 
+
     // INITIALIZE VBOX CONTENT FROM ARRAY
     @FXML
     public void initialize() {
@@ -48,6 +56,10 @@ public class SoundVibe extends Application {
         addLabelsToVBox(vboxSongs, songs);
         addLabelsToVBox(vboxAlbums, albums);
         addDurationLabels(vboxDurations, songs);
+
+        UserDAO uDAO = new UserDAO();
+        ObservableList<User> uList = uDAO.showData();
+        list1.setItems(uList);
     }
 
     private void addLabelsToVBox(VBox vbox, Object[] data) {
@@ -181,6 +193,7 @@ public class SoundVibe extends Application {
             // Handle any exception that might occur during the loading of the LoginPage.fxml
         }
     }
+
 
 
     public static void main(String[] args) {

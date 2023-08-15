@@ -7,9 +7,21 @@ public class User {
     private String userPassword;
     private String userFriends;
     private String userLikedSong;
-    public User(String userEmail, String userPassword) {
+    public User(String userId, String userName, String userEmail, String userPassword) {
+        this.userId = userId;
+        this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                '}';
     }
 
     public String getUserName() {
