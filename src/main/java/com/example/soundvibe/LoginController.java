@@ -1,4 +1,7 @@
 package com.example.soundvibe;
+
+import DAO.UserDAO;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -22,47 +25,39 @@ public class LoginController {
     @FXML
     TextField textFieldPassword;
 
-    // ACTION UNTUK CLOSE STAGE DOANG
-    // BISA DIGANTI LAIN
-//    public void buttonLoggedInAction(ActionEvent event) throws IOException {
-//        Stage currentStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-//        currentStage.close();
-//    }
-
-    // ACTION UNTUK CLOSE KETIKA USERNAME DAN PASSWORD BENAR
-//    public void buttonLoggedInAction(ActionEvent event) {
-//        String username = textFieldUsername.getText().trim();
-//        String password = textFieldPassword.getText().trim();
-//        // GANTI USERNAME DAN PASSWORD DISINI
-//        if (username.equals("2072001") && password.equals("2072001")) {
-//            Stage currentStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-//            currentStage.close();
-//        } else {
-//            Alert alert = new Alert(AlertType.ERROR);
-//            alert.setTitle("Login Error");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Invalid username or password. Please try again.");
-//            alert.showAndWait();
-//        }
-//    }
-
     // USER DAPET DARI UserLogin usecase
     public void buttonLoggedInAction(ActionEvent event) {
+
+        UserDAO uDAO = new UserDAO();
+        ObservableList<User> uList = uDAO.showData();
+
         String username = textFieldUsername.getText().trim();
         String password = textFieldPassword.getText().trim();
 
-        UserLogin userLogin = new UserLogin();
-        User user = userLogin.execute(username, password);
+//        UserLogin userLogin = new UserLogin();
+//        User user = userLogin.execute(username, password);
 
-        if (user != null) {
-            Stage currentStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            currentStage.close();
-        } else {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Login Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Invalid username or password. Please try again.");
-            alert.showAndWait();
+        User targetUser = null;
+        for (User user : uList) {
+            if (user.getUserEmail().equals(username)) {
+                targetUser = user;
+                break;
+            }
+        }
+
+        if (targetUser != null) {
+            String userPassword = targetUser.getUserPassword();
+            if (userPassword.equals(password)) {
+                Stage currentStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+                currentStage.close();
+                System.out.println("Logged in");
+            } else {
+                Alert alert = new Alert(AlertType.ERROR);
+                alert.setTitle("Login Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Invalid username or password. Please try again.");
+                alert.showAndWait();
+            }
         }
     }
 
@@ -73,6 +68,7 @@ public class LoginController {
         textFieldUsername.textProperty().addListener((observable, oldValue, newValue) -> {
             buttonLoggedIn.setDisable(newValue.trim().isEmpty());
         });
+
     }
 
 }
