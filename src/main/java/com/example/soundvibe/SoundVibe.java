@@ -56,10 +56,6 @@ public class SoundVibe extends Application {
         addLabelsToVBox(vboxSongs, songs);
         addLabelsToVBox(vboxAlbums, albums);
         addDurationLabels(vboxDurations, songs);
-
-        UserDAO uDAO = new UserDAO();
-        ObservableList<User> uList = uDAO.showData();
-        list1.setItems(uList);
     }
 
     private void addLabelsToVBox(VBox vbox, Object[] data) {
