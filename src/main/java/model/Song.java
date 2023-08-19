@@ -7,9 +7,12 @@ public class Song {
     private String songGenre;
     private String songDuration;
 
-    public Song(String songTitle, String songDuration) {
+    private String songAlbum;
+
+    public Song(String songTitle, String songDuration, String songAlbum) {
         this.songTitle = songTitle;
         this.songDuration = songDuration;
+        this.songAlbum = songAlbum;
     }
 
     public String getSongTitle() {
@@ -50,5 +53,13 @@ public class Song {
 
     public void setSongId(String songId) {
         this.songId = songId;
+    }
+
+    public String getSongAlbum() {
+        return songAlbum;
+    }
+
+    public void setSongAlbum(String songAlbum) {
+        this.songAlbum = songAlbum;
     }
 }

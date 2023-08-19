@@ -5,9 +5,11 @@ public class Album {
     private String albumId;
     private String albumName;
     private String albumCover;
+    private String albumArtist;
 
-    public Album(String albumName) {
+    public Album(String albumName, String albumArtist) {
         this.albumName = albumName;
+        this.albumArtist = albumArtist;
     }
 
     public String getAlbumName() {
@@ -32,5 +34,13 @@ public class Album {
 
     public void setAlbumId(String albumId) {
         this.albumId = albumId;
+    }
+
+    public String getAlbumArtist() {
+        return albumArtist;
+    }
+
+    public void setAlbumArtist(String albumArtist) {
+        this.albumArtist = albumArtist;
     }
 }

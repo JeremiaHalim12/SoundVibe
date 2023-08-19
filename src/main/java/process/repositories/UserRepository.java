@@ -12,4 +12,29 @@ public class UserRepository {
             return null; // Return null for failed sign-in attempt
         }
     }
+
+    // ALTERNATIF TANPA DAO
+//    public User signIn(String email, String password) {
+//        ObservableList<User> uList = FXCollections.observableArrayList();
+//
+//        try {
+//            String query = "SELECT * FROM user WHERE userEmail = ? AND userPassword = ?";
+//            PreparedStatement ps = JDBCConnection.getConnection().prepareStatement(query);
+//            ps.setString(1, email);
+//            ps.setString(2, password);
+//
+//            ResultSet res = ps.executeQuery();
+//            if (res.next()) {
+//                String userId = res.getString("userId");
+//                String userName = res.getString("userName");
+//                String userEmail = res.getString("userEmail");
+//                String userPassword = res.getString("userPassword");
+//                return new User(userId, userName, userEmail, userPassword);
+//            }
+//        } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//
+//        return null;
+//    }
 }

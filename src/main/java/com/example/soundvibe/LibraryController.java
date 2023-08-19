@@ -12,6 +12,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Album;
 import model.Song;
+import process.usecases.album.AlbumGet;
+import process.usecases.song.SongGet;
 
 import java.io.IOException;
 
@@ -20,45 +22,47 @@ public class LibraryController {
     @FXML
     private VBox vboxSongs;
 
-    private final Song[] songs = {
-            new Song("Panah Asmara","4:34"),
-            new Song("The Scientist","5:09"),
-            new Song("Harus Bahagia","2:53"),
-            new Song("Hati - Hati di Jalan","4:02"),
-            new Song("Monokrom","3:34"),
-            new Song("Lantas","3:54"),
-            new Song("Kereta Kencan","4:17"),
-            new Song("All I Want","5:05"),
-            new Song("lowkey","2:51"),
-            new Song("golden hour","3:29"),
-            new Song("Yellow","4:26"),
-            new Song("Komang","3:42"),
-            new Song("Tenang","4:07"),
-            new Song("Asmalibrasi","4:14"),
-            new Song("Serta Mulia","3:09"),
-    };
+    private final Song[] songs = new SongGet().executeSongGet();
+//    private final Song[] songs = {
+//            new Song("Panah Asmara","4:34"),
+//            new Song("The Scientist","5:09"),
+//            new Song("Harus Bahagia","2:53"),
+//            new Song("Hati - Hati di Jalan","4:02"),
+//            new Song("Monokrom","3:34"),
+//            new Song("Lantas","3:54"),
+//            new Song("Kereta Kencan","4:17"),
+//            new Song("All I Want","5:05"),
+//            new Song("lowkey","2:51"),
+//            new Song("golden hour","3:29"),
+//            new Song("Yellow","4:26"),
+//            new Song("Komang","3:42"),
+//            new Song("Tenang","4:07"),
+//            new Song("Asmalibrasi","4:14"),
+//            new Song("Serta Mulia","3:09"),
+//    };
 
     // Album
     @FXML
     private VBox vboxAlbums;
 
-    private final Album[] albums = {
-            new Album("DEKADE"),
-            new Album("A Rush of Blood to the Head"),
-            new Album("Harus Bahagia"),
-            new Album("Manusia"),
-            new Album("Monokrom"),
-            new Album("Sentimental"),
-            new Album("Kereta Kencan"),
-            new Album("In a Perfect World"),
-            new Album("lowkey"),
-            new Album("this is what falling in love feels like"),
-            new Album("Parachutes"),
-            new Album("Komang"),
-            new Album("Tenang"),
-            new Album("Asmalibrasi"),
-            new Album("Serta Mulia"),
-    };
+    private final Album[] albums = new AlbumGet().executeAlbumGet();
+//    private final Album[] albums = {
+//            new Album("DEKADE"),
+//            new Album("A Rush of Blood to the Head"),
+//            new Album("Harus Bahagia"),
+//            new Album("Manusia"),
+//            new Album("Monokrom"),
+//            new Album("Sentimental"),
+//            new Album("Kereta Kencan"),
+//            new Album("In a Perfect World"),
+//            new Album("lowkey"),
+//            new Album("this is what falling in love feels like"),
+//            new Album("Parachutes"),
+//            new Album("Komang"),
+//            new Album("Tenang"),
+//            new Album("Asmalibrasi"),
+//            new Album("Serta Mulia"),
+//    };
 
     // DURATIONS
     @FXML
