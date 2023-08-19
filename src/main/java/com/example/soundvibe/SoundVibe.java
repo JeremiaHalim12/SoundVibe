@@ -18,11 +18,15 @@ import model.Album;
 import model.Artist;
 import model.Song;
 import model.User;
+import process.repositories.SongRepository;
 import process.usecases.album.AlbumGet;
+import process.usecases.album.AlbumGetById;
 import process.usecases.artist.ArtistGet;
+import process.usecases.artist.ArtistGetById;
 import process.usecases.song.SongGet;
 
 import java.io.IOException;
+import java.util.List;
 
 public class SoundVibe extends Application {
 
@@ -45,40 +49,53 @@ public class SoundVibe extends Application {
     // GET FROM USECASES
     private final Artist[] artists = new ArtistGet().exexuteArtistGet();
     private final Song[] songs = new SongGet().executeSongGet();
-    private final Album[] albums = new AlbumGet().executeAlbumGet();
-
-
+    private final AlbumGetById albumGetter = new AlbumGetById();
+    private final ArtistGetById artistGetter = new ArtistGetById();
 
     // INITIALIZE VBOX CONTENT FROM ARRAY
     @FXML
     public void initialize() {
         addLabelsToVBox(vboxArtists, artists);
+        addArtistLabels(vboxArtists, songs);
         addLabelsToVBox(vboxSongs, songs);
-        addLabelsToVBox(vboxAlbums, albums);
+        addAlbumLabels(vboxAlbums, songs);
         addDurationLabels(vboxDurations, songs);
     }
 
+    // ALL LABELS TO VBOX
     private void addLabelsToVBox(VBox vbox, Object[] data) {
         for (Object item : data) {
-            if (item instanceof Artist) {
-                Artist artist = (Artist) item;
-                Label label = new Label(artist.getArtistName());
-                label.setStyle("-fx-padding: 0 0 5 0;");
-                vbox.getChildren().add(label);
-            } else if (item instanceof Song) {
+            if (item instanceof Song) {
                 Song song = (Song) item;
                 Label label = new Label(song.getSongTitle());
                 label.setStyle("-fx-padding: 0 0 5 0;");
                 vbox.getChildren().add(label);
-            } else if (item instanceof Album) {
-                Album album = (Album) item;
+            }
+        }
+    }
+    private void addArtistLabels(VBox vbox, Song[] songs) {
+        for (Song song : songs) {
+            Album album = albumGetter.executeAlbumGetById(song.getSongAlbum());
+            if (album != null) {
+                Artist artist = artistGetter.executeArtistGetById(album.getAlbumArtist());
+                if (artist != null) {
+                    Label label = new Label(artist.getArtistName());
+                    label.setStyle("-fx-padding: 0 0 5 0;");
+                    vbox.getChildren().add(label);
+                }
+            }
+        }
+    }
+    private void addAlbumLabels(VBox vbox, Song[] songs) {
+        for (Song song : songs) {
+            Album album = albumGetter.executeAlbumGetById(song.getSongAlbum());
+            if (album != null) {
                 Label label = new Label(album.getAlbumName());
                 label.setStyle("-fx-padding: 0 0 5 0;");
                 vbox.getChildren().add(label);
             }
         }
     }
-
     private void addDurationLabels(VBox vbox, Song[] songs) {
         for (Song song : songs) {
             Label label = new Label(song.getSongDuration());
@@ -90,6 +107,7 @@ public class SoundVibe extends Application {
     // BUTTON UNTUK SIGNIN
     @FXML
     Button SignIn;
+
     @FXML
     public void signInButtonAction(ActionEvent event) throws IOException {
         Stage loginStage = new Stage();
@@ -189,7 +207,6 @@ public class SoundVibe extends Application {
             // Handle any exception that might occur during the loading of the LoginPage.fxml
         }
     }
-
 
 
     public static void main(String[] args) {

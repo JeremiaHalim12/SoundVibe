@@ -12,6 +12,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Album;
 import model.Song;
+import process.usecases.album.AlbumGet;
+import process.usecases.song.SongGet;
 
 import java.io.IOException;
 
@@ -20,35 +22,38 @@ public class ArtistController {
     @FXML
     private VBox vboxSongs;
 
-    private final Song[] songs = {
-            new Song("Tutur Batin","3:35"),
-            new Song("Dunia Tipu-Tipu","3:38"),
-            new Song("Cinta Dan Rahasia","4:22"),
-            new Song("Jalan Pulang","3:36"),
-            new Song("Berawal Dari Tatap","4:21"),
-            new Song("Intuisi","4:00"),
-            new Song("Lihatlah Lebih Dekat","4:24"),
-            new Song("Tenang","4:07"),
-            new Song("Harus Bahagia","2:53"),
-            new Song("Reflection - From \"Mulan\"","3:43")
-    };
+
+    private final Song[] songs = new SongGet().executeSongGet();
+//    private final Song[] songs = {
+//            new Song("Tutur Batin","3:35"),
+//            new Song("Dunia Tipu-Tipu","3:38"),
+//            new Song("Cinta Dan Rahasia","4:22"),
+//            new Song("Jalan Pulang","3:36"),
+//            new Song("Berawal Dari Tatap","4:21"),
+//            new Song("Intuisi","4:00"),
+//            new Song("Lihatlah Lebih Dekat","4:24"),
+//            new Song("Tenang","4:07"),
+//            new Song("Harus Bahagia","2:53"),
+//            new Song("Reflection - From \"Mulan\"","3:43")
+//    };
 
     // Album
     @FXML
     private VBox vboxAlbums;
 
-    private final Album[] albums = {
-            new Album("Tutur Batin"),
-            new Album("Tutur Batin"),
-            new Album("YURA"),
-            new Album("Jalan Pulang"),
-            new Album("YURA"),
-            new Album("Merakit"),
-            new Album("Lihatlah Lebih Dekat"),
-            new Album("Tutur Batin"),
-            new Album("Merakit"),
-            new Album("Various Artist")
-    };
+    private final Album[] albums = new AlbumGet().executeAlbumGet();
+//    private final Album[] albums = {
+//            new Album("Tutur Batin"),
+//            new Album("Tutur Batin"),
+//            new Album("YURA"),
+//            new Album("Jalan Pulang"),
+//            new Album("YURA"),
+//            new Album("Merakit"),
+//            new Album("Lihatlah Lebih Dekat"),
+//            new Album("Tutur Batin"),
+//            new Album("Merakit"),
+//            new Album("Various Artist")
+//    };
 
     // DURATIONS
     @FXML

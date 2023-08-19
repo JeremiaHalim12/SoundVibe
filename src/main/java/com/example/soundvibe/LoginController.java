@@ -14,6 +14,8 @@ import model.User;
 import process.usecases.user.UserLogin;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class LoginController {
     // BUTTON UNTUK LOGGED IN
@@ -30,6 +32,12 @@ public class LoginController {
 
         UserDAO uDAO = new UserDAO();
         ObservableList<User> uList = uDAO.showData();
+
+        // contoh hanya print namenya saja
+        List<String> usernames = uList.stream()
+                .map(User::getUserName) // Assuming the getter method is getUserName()
+                .collect(Collectors.toList());
+        System.out.println(usernames);
 
         String username = textFieldUsername.getText().trim();
         String password = textFieldPassword.getText().trim();
@@ -60,6 +68,26 @@ public class LoginController {
             }
         }
     }
+
+    // ALTERNATIF JIKA DAONYA DI REPOSITORY
+//    public void buttonLoggedInAction(ActionEvent event) {
+//        String username = textFieldUsername.getText().trim();
+//        String password = textFieldPassword.getText().trim();
+//
+//        User user = userRepository.signIn(username, password);
+//
+//        if (user != null) {
+//            Stage currentStage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+//            currentStage.close();
+//            System.out.println("Logged in");
+//        } else {
+//            Alert alert = new Alert(AlertType.ERROR);
+//            alert.setTitle("Login Error");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Invalid username or password. Please try again.");
+//            alert.showAndWait();
+//        }
+//    }
 
     // initialize untuk disable buttonLoggedIn dan listener
     @FXML
