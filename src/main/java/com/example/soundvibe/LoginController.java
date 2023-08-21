@@ -34,10 +34,10 @@ public class LoginController {
         ObservableList<User> uList = uDAO.showData();
 
         // contoh hanya print namenya saja
-        List<String> usernames = uList.stream()
-                .map(User::getUserName) // Assuming the getter method is getUserName()
-                .collect(Collectors.toList());
-        System.out.println(usernames);
+//        List<String> usernames = uList.stream()
+//                .map(User::getUserName) // Assuming the getter method is getUserName()
+//                .collect(Collectors.toList());
+//        System.out.println(usernames);
 
         String username = textFieldUsername.getText().trim();
         String password = textFieldPassword.getText().trim();
@@ -63,9 +63,15 @@ public class LoginController {
                 Alert alert = new Alert(AlertType.ERROR);
                 alert.setTitle("Login Error");
                 alert.setHeaderText(null);
-                alert.setContentText("Invalid username or password. Please try again.");
+                alert.setContentText("Invalid password. Please try again.");
                 alert.showAndWait();
             }
+        } else {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Login Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Invalid username or password. Please try again.");
+            alert.showAndWait();
         }
     }
 

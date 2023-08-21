@@ -1,8 +1,6 @@
 package com.example.soundvibe;
 
-import DAO.UserDAO;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,33 +9,40 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Album;
 import model.Artist;
 import model.Song;
-import model.User;
-import process.repositories.SongRepository;
-import process.usecases.album.AlbumGet;
 import process.usecases.album.AlbumGetById;
 import process.usecases.artist.ArtistGet;
 import process.usecases.artist.ArtistGetById;
 import process.usecases.song.SongGet;
 
 import java.io.IOException;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
-public class SoundVibe extends Application {
+public class SoundVibeLogged extends Application {
+    private static SoundVibeConfig config;
+
+    public static void setConfig(SoundVibeConfig config) {
+        SoundVibeLogged.config = config;
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SoundVibe.class.getResource("SoundVibe.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SoundVibeLogged.class.getResource("SoundVibeLogged.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("SoundVibe");
         stage.setScene(scene);
         stage.show();
     }
+
+    @FXML
+    private Label label;
 
     @FXML
     private ListView list1;
@@ -60,6 +65,9 @@ public class SoundVibe extends Application {
         addLabelsToVBox(vboxSongs, songs);
         addAlbumLabels(vboxAlbums, songs);
         addDurationLabels(vboxDurations, songs);
+
+        String name = config.getName();
+        label.setText(name);
     }
 
     // ALL LABELS TO VBOX
@@ -73,6 +81,7 @@ public class SoundVibe extends Application {
             }
         }
     }
+
     private void addArtistLabels(VBox vbox, Song[] songs) {
         for (Song song : songs) {
             Album album = albumGetter.executeAlbumGetById(song.getSongAlbum());
@@ -86,6 +95,7 @@ public class SoundVibe extends Application {
             }
         }
     }
+
     private void addAlbumLabels(VBox vbox, Song[] songs) {
         for (Song song : songs) {
             Album album = albumGetter.executeAlbumGetById(song.getSongAlbum());
@@ -96,6 +106,7 @@ public class SoundVibe extends Application {
             }
         }
     }
+
     private void addDurationLabels(VBox vbox, Song[] songs) {
         for (Song song : songs) {
             Label label = new Label(song.getSongDuration());
@@ -104,41 +115,25 @@ public class SoundVibe extends Application {
         }
     }
 
-    // BUTTON UNTUK SIGNIN
+    // Button SignOut
     @FXML
-    Button SignIn;
+    Button SignOut;
 
     @FXML
-    public void signInButtonAction(ActionEvent event) throws IOException {
-        Stage loginStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(SoundVibe.class.getResource("LoginPage.fxml"));
-        Parent root = loader.load();
-        Scene newScene = new Scene(root, 600, 400);
-        loginStage.setScene(newScene);
-        loginStage.initModality(Modality.APPLICATION_MODAL);
-        loginStage.setTitle("Login Page");
-        loginStage.show();
-    }
-
-    // Button SignUp
-    @FXML
-    Button SignUp;
-
-    @FXML
-    private void signupButtonAction() {
+    private void signoutButtonAction() {
         try {
-            // Load LoginPage.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("SignUpPage.fxml"));
+            // Load SoundVibe.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SoundVibe.fxml"));
             Parent loginPageParent = loader.load();
 
             // Access the current stage
-            Stage currentStage = (Stage) SignUp.getScene().getWindow();
+            Stage currentStage = (Stage) SignOut.getScene().getWindow();
 
             // Set the new scene on the current stage
             currentStage.setScene(new Scene(loginPageParent));
         } catch (Exception e) {
             e.printStackTrace();
-            // Handle any exception that might occur during the loading of the LoginPage.fxml
+            // Handle any exception that might occur during the loading of the SoundVibe.fxml
         }
     }
 
