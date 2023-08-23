@@ -124,6 +124,9 @@
       </ImageView>
       <Button fx:id="SignOut" layoutX="532.0" layoutY="41.0" mnemonicParsing="false" onAction="#signoutButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Sign Out" underline="true" />
       <Button fx:id="artistBottom" layoutX="1.0" layoutY="327.0" mnemonicParsing="false" onAction="#artistButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Yura Yunita" />
-      <Label fx:id="label" layoutX="487.0" layoutY="18.0" prefHeight="17.0" prefWidth="90.0" textFill="WHITE" />
+      <Label fx:id="label" alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="442.0" layoutY="13.0" prefHeight="20.0" prefWidth="145.0" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
    </children>
 </Pane>

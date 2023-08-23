@@ -131,6 +131,7 @@ public class SoundVibeLogged extends Application {
 
             // Set the new scene on the current stage
             currentStage.setScene(new Scene(loginPageParent));
+
         } catch (Exception e) {
             e.printStackTrace();
             // Handle any exception that might occur during the loading of the SoundVibe.fxml

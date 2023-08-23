@@ -5,18 +5,32 @@ import java.sql.SQLException;
 
 public class JDBCConnection {
 
+//    public static Connection getConnection() {
+//        Connection conn = null;
+//
+//        try {
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/soundvibe", "root", "");
+//        }
+//        catch (ClassNotFoundException | SQLException ex){
+//            System.out.println(ex.getMessage());
+//        }
+//
+//
+//        return conn;
+//    }
+
+    private static Connection connection;
     public static Connection getConnection() {
-        Connection conn = null;
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/soundvibe", "root", "");
+        if (connection == null) {
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/soundvibe", "root", "");
+            } catch (ClassNotFoundException | SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
-        catch (ClassNotFoundException | SQLException ex){
-            System.out.println(ex.getMessage());
-        }
 
-
-        return conn;
+        return connection;
     }
 }
