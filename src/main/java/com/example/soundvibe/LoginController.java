@@ -104,7 +104,7 @@ public class LoginController {
                             .text("Redirecting to the main page")
                             .darkStyle()
                             .position(Pos.TOP_RIGHT)
-                            .hideAfter(Duration.seconds(15))
+                            .hideAfter(Duration.seconds(6))
                             .showInformation();
                 });
 
