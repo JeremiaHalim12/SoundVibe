@@ -119,7 +119,8 @@
       <ImageView fitHeight="116.0" fitWidth="116.0" layoutX="9.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
          <image>
 <!--            <Image url="D:\KULIAH\SA 2\Pemrograman Terapan\SoundVibe\src\asset\download.jpeg" />-->
-             <Image url="C:\xampp\htdocs\SoundVibe\src\asset\download.jpeg" />
+<!--             <Image url="C:\xampp\htdocs\SoundVibe\src\asset\download.jpeg" />-->
+             <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\download.jpeg" />
          </image>
       </ImageView>
       <Button fx:id="SignOut" layoutX="532.0" layoutY="41.0" mnemonicParsing="false" onAction="#signoutButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Sign Out" underline="true" />
@@ -128,5 +129,6 @@
          <font>
             <Font size="14.0" />
          </font></Label>
+      <Button fx:id="Profile" layoutX="432.0" layoutY="54.0" mnemonicParsing="false" onAction="#profileButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Profile" underline="true" />
    </children>
 </Pane>
