@@ -204,6 +204,29 @@ public class SoundVibeLogged extends Application {
         }
     }
 
+    // Button SignOut
+    @FXML
+    Button Profile;
+
+    @FXML
+    private void profileButtonAction() {
+        try {
+            // Load SoundVibe.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
+            Parent loginPageParent = loader.load();
+
+            // Access the current stage
+            Stage currentStage = (Stage) Profile.getScene().getWindow();
+
+            // Set the new scene on the current stage
+            currentStage.setScene(new Scene(loginPageParent));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Handle any exception that might occur during the loading of the SoundVibe.fxml
+        }
+    }
+
 
     public static void main(String[] args) {
         launch();
