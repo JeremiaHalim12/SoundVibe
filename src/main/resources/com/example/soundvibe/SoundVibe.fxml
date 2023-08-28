@@ -119,8 +119,8 @@
       <ImageView fitHeight="116.0" fitWidth="116.0" layoutX="9.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
          <image>
 <!--            <Image url="D:\KULIAH\SA 2\Pemrograman Terapan\SoundVibe\src\asset\download.jpeg" />-->
-<!--             <Image url="C:\xampp\htdocs\SoundVibe\src\asset\download.jpeg" />-->
-             <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\download.jpeg" />
+             <Image url="C:\xampp\htdocs\SoundVibe\src\asset\download.jpeg" />
+<!--             <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\download.jpeg" />-->
          </image>
       </ImageView>
       <Button fx:id="SignIn" layoutX="480.0" layoutY="13.0" mnemonicParsing="false" onAction="#signInButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Sign In" underline="true" />

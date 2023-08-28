@@ -14,6 +14,12 @@ import process.repositories.UserRepository;
 import java.io.IOException;
 
 public class ProfileController {
+    private static SoundVibeConfig config;
+
+    public static void setConfig(SoundVibeConfig config) {
+        ProfileController.config = config;
+    }
+
     @FXML
     Button SignOut;
 
@@ -111,9 +117,15 @@ public class ProfileController {
 
     @FXML
     private void initialize() {
-        SignOut.setDisable(true);
+//        SignOut.setDisable(true);
         textFieldUsername.textProperty().addListener((observable, oldValue, newValue) -> {
             SignOut.setDisable(newValue.trim().isEmpty());
         });
+
+        String name = config.getName();
+        String email = config.getEmail();
+
+        textFieldUsername.setText(name);
+        textFieldEmail.setText(email);
     }
 }
