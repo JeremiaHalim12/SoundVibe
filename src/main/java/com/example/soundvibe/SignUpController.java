@@ -69,7 +69,7 @@ public class SignUpController {
         try {
             uRepo.addUser(username, email, password);
 
-            SoundVibeConfig config = new SoundVibeConfig(username);
+            SoundVibeConfig config = new SoundVibeConfig(username, email);
             SoundVibeLogged.setConfig(config);
 
             Alert successAlert = new Alert(Alert.AlertType.INFORMATION);

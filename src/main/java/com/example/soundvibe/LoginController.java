@@ -77,7 +77,7 @@ public class LoginController {
 
 
         if (user != null) {
-            SoundVibeConfig config = new SoundVibeConfig(user.getUserName());
+            SoundVibeConfig config = new SoundVibeConfig(user.getUserName(),user.getUserEmail());
             SoundVibeLogged.setConfig(config);
 
             try {
@@ -127,6 +127,8 @@ public class LoginController {
         textFieldUsername.textProperty().addListener((observable, oldValue, newValue) -> {
             buttonLoggedIn.setDisable(newValue.trim().isEmpty());
         });
+
+
 
     }
 

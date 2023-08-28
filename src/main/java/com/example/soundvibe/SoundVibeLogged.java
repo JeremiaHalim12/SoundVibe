@@ -168,8 +168,12 @@ public class SoundVibeLogged extends Application {
     private void artistButtonAction() {
         try {
             // Load ArtistPage.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ArtistPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ArtistPageLogged.fxml"));
             Parent loginPageParent = loader.load();
+
+            ArtistLoggedController artistLoggedController = loader.getController();
+            System.out.println(config.getName());
+            artistLoggedController.setUsername(config.getName());
 
             // Access the current stage
             Stage currentStage = (Stage) artistBottom.getScene().getWindow();
@@ -210,6 +214,11 @@ public class SoundVibeLogged extends Application {
 
     @FXML
     private void profileButtonAction() {
+//        System.out.println(config.getName());
+//        System.out.println(config.getEmail());
+//
+//        SoundVibeConfig config2 = new SoundVibeConfig(config.getName(),config.getEmail());
+//        SoundVibeLogged.setConfig(config2);
         try {
             // Load SoundVibe.fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ProfilePage.fxml"));
