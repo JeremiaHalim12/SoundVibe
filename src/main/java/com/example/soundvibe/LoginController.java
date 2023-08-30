@@ -17,7 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import model.User;
 import process.repositories.UserRepository;
-import process.usecases.user.UserLogin;
+//import process.usecases.user.UserLogin;
 import org.controlsfx.control.Notifications;
 import javafx.util.Duration;
 
@@ -77,13 +77,19 @@ public class LoginController {
 
 
         if (user != null) {
-            SoundVibeConfig config = new SoundVibeConfig(user.getUserName(),user.getUserEmail());
-            SoundVibeLogged.setConfig(config);
+            // user.getUserName() untuk nama
+            // user.getUserEmail() untuk email
+
+//            SoundVibeConfig config = new SoundVibeConfig(user.getUserName(),user.getUserEmail());
+//            SoundVibeLogged.setConfig(config);
 
             try {
                 // Load SoundVibeLogged.fxml
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("SoundVibeLogged.fxml"));
                 Parent soundVibeLoggedParent = loader.load();
+
+                SoundVibeLogged soundVibeLogged = loader.getController();
+                soundVibeLogged.displayName(user.getUserName(), user.getUserEmail(), user.getUserPassword());
 
                 // Access the current stage
                 Stage currentStage = (Stage) buttonLoggedIn.getScene().getWindow();

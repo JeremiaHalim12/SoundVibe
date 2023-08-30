@@ -33,7 +33,7 @@ public class UserRepository {
 
             ResultSet res = ps.executeQuery();
             if (res.next()) {
-                String userId = res.getString("userId");
+                int userId = res.getInt("userId");
                 String userName = res.getString("userName");
                 String userEmail = res.getString("userEmail");
                 String userPassword = res.getString("userPassword");
@@ -64,5 +64,111 @@ public class UserRepository {
             System.out.println(ex.getMessage());
         }
     }
+
+    public User updateUsername(String newUsername, String newEmail) {
+        User updatedUser = null;
+        try {
+            String query = "UPDATE user SET userName = ? WHERE userEmail = ?";
+            PreparedStatement ps = JDBCConnection.getConnection().prepareStatement(query);
+            ps.setString(1, newUsername);
+            ps.setString(2, newEmail);
+
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Username updated successfully!");
+
+                String selectQuery = "SELECT * FROM user WHERE userEmail = ?";
+                PreparedStatement selectPs = JDBCConnection.getConnection().prepareStatement(selectQuery);
+                selectPs.setString(1, newEmail);
+
+                ResultSet resultSet = selectPs.executeQuery();
+                if (resultSet.next()) {
+                    updatedUser = new User(
+                            resultSet.getInt("userId"),
+                            newUsername,
+                            resultSet.getString("userEmail"),
+                            resultSet.getString("userPassword")
+                    );
+                }
+            } else {
+                System.out.println("Failed to update username.");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return updatedUser;
+    }
+
+    public User updateUserEmail(String newUsername, String newEmail) {
+        User updatedUser = null;
+        try {
+            String query = "UPDATE user SET userEmail = ? WHERE userName = ?";
+            PreparedStatement ps = JDBCConnection.getConnection().prepareStatement(query);
+            ps.setString(1, newEmail);
+            ps.setString(2, newUsername);
+
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Email updated successfully!");
+
+                String selectQuery = "SELECT * FROM user WHERE userName = ?";
+                PreparedStatement selectPs = JDBCConnection.getConnection().prepareStatement(selectQuery);
+                selectPs.setString(1, newUsername);
+
+                ResultSet resultSet = selectPs.executeQuery();
+                if (resultSet.next()) {
+                    updatedUser = new User(
+                            resultSet.getInt("userId"),
+                            resultSet.getString("userName"),
+                            newEmail,
+                            resultSet.getString("userPassword")
+                    );
+                }
+            } else {
+                System.out.println("Failed to update email.");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return updatedUser;
+    }
+
+    public User updateUserPassword(String newUsername, String newPassword) {
+        User updatedUser = null;
+        try {
+            String query = "UPDATE user SET userPassword = ? WHERE userName = ?";
+            PreparedStatement ps = JDBCConnection.getConnection().prepareStatement(query);
+            ps.setString(1, newPassword);
+            ps.setString(2, newUsername);
+
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Password updated successfully!");
+
+                String selectQuery = "SELECT * FROM user WHERE userName = ?";
+                PreparedStatement selectPs = JDBCConnection.getConnection().prepareStatement(selectQuery);
+                selectPs.setString(1, newUsername);
+
+                ResultSet resultSet = selectPs.executeQuery();
+                if (resultSet.next()) {
+                    updatedUser = new User(
+                            resultSet.getInt("userId"),
+                            resultSet.getString("userName"),
+                            resultSet.getString("userEmail"),
+                            newPassword
+                    );
+                }
+            } else {
+                System.out.println("Failed to update password.");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return updatedUser;
+    }
+
 
 }

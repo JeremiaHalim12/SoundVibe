@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0f141d;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soundvibe.LibraryLoggedController">
+    <children>
+        <Label layoutX="12.0" layoutY="12.0" text="SoundVibe" textFill="WHITE">
+            <font>
+                <Font name="Bauhaus 93" size="25.0" />
+            </font>
+        </Label>
+        <VBox layoutX="4.0" layoutY="53.0" prefHeight="90.0" prefWidth="90.0">
+            <children>
+                <Button fx:id="homeButton" mnemonicParsing="false" onAction="#homeButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Home" />
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Library" />
+                <Button fx:id="likedSongButton" mnemonicParsing="false" onAction="#likedSongButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Liked Song" />
+                <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Playlist" />
+            </children>
+        </VBox>
+      <TextField layoutX="190.0" layoutY="11.0" prefHeight="30.0" prefWidth="242.0" />
+        <Button layoutX="377.0" layoutY="14.0" mnemonicParsing="false" text="Search" />
+        <ProgressBar layoutX="143.0" layoutY="331.0" prefHeight="18.0" prefWidth="438.0" progress="0.0" />
+        <Slider layoutX="506.0" layoutY="372.0" prefHeight="14.0" prefWidth="89.0" />
+        <Label layoutX="143.0" layoutY="51.0" text="LIBRARY" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="35.0" />
+            </font>
+        </Label>
+        <Label layoutX="27.0" layoutY="177.0" text="NOW PLAYING" textFill="WHITE" />
+        <Label layoutX="8.0" layoutY="312.0" text="Harus Bahagia" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="116.0" fitWidth="116.0" layoutX="9.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="C:\xampp\htdocs\SoundVibe\src\asset\download.jpeg" />
+<!--                <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\download.jpeg" />-->
+<!--                <Image url="D:\KULIAH\SA 2\Pemrograman Terapan\SoundVibe\src\asset\download.jpeg" />-->
+            </image>
+        </ImageView>
+        <ScrollPane layoutX="143.0" layoutY="104.0" prefHeight="200.0" prefWidth="438.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="346.0" prefWidth="421.0">
+                    <children>
+                        <GridPane layoutY="1.0" prefHeight="200.0" prefWidth="418.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <VBox fx:id="vboxSongs" prefHeight="200.0" prefWidth="99.0">
+                           <GridPane.margin>
+                              <Insets top="145.0" />
+                           </GridPane.margin></VBox>
+                                <VBox fx:id="vboxAlbums" prefHeight="200.0" prefWidth="219.0" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets top="145.0" />
+                           </GridPane.margin></VBox>
+                                <VBox fx:id="vboxDurations" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                           <GridPane.margin>
+                              <Insets top="145.0" />
+                           </GridPane.margin></VBox>
+                            </children>
+                        </GridPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+        <Label fx:id="label" alignment="TOP_RIGHT" contentDisplay="CENTER" layoutX="452.0" layoutY="23.0" prefHeight="20.0" prefWidth="145.0" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Button fx:id="artistBottom" layoutX="1.0" layoutY="327.0" mnemonicParsing="false" onAction="#artistButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Yura Yunita" />
+<!--        <Button fx:id="SignOut" layoutX="542.0" layoutY="51.0" mnemonicParsing="false" onAction="#signoutButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Sign Out" underline="true" />-->
+        <Button fx:id="SignOut" layoutX="542.0" layoutY="51.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Sign Out" underline="true" />
+        <Button fx:id="Profile" layoutX="432.0" layoutY="54.0" mnemonicParsing="false" onAction="#profileButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Profile" underline="true" />
+    </children>
+</Pane>
