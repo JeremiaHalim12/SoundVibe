@@ -1,13 +1,13 @@
 package model;
 
 public class User {
-    private String userId;
+    private int userId;
     private String userName;
     private String userEmail;
     private String userPassword;
     private String userFriends;
     private String userLikedSong;
-    public User(String userId, String userName, String userEmail, String userPassword) {
+    public User(int userId, String userName, String userEmail, String userPassword) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
@@ -64,11 +64,11 @@ public class User {
         this.userLikedSong = userLikedSong;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 }

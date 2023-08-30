@@ -12,7 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.User;
 import process.repositories.UserRepository;
-import process.usecases.user.UserLogin;
+//import process.usecases.user.UserLogin;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -69,8 +69,8 @@ public class SignUpController {
         try {
             uRepo.addUser(username, email, password);
 
-            SoundVibeConfig config = new SoundVibeConfig(username, email);
-            SoundVibeLogged.setConfig(config);
+//            SoundVibeConfig config = new SoundVibeConfig(username, email);
+//            SoundVibeLogged.setConfig(config);
 
             Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
             successAlert.setTitle("Sign Up Successful");
