@@ -1,6 +1,5 @@
 package com.example.soundvibe;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,12 +9,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.User;
-import process.repositories.UserRepository;
+import process.usecases.user.UserSignUp;
 //import process.usecases.user.UserLogin;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class SignUpController {
     @FXML
@@ -64,13 +61,10 @@ public class SignUpController {
             return;
         }
 
-        UserRepository uRepo = new UserRepository();
+        UserSignUp userSignUp = new UserSignUp();
 
         try {
-            uRepo.addUser(username, email, password);
-
-//            SoundVibeConfig config = new SoundVibeConfig(username, email);
-//            SoundVibeLogged.setConfig(config);
+            userSignUp.executeUserSignUp(username, email, password);
 
             Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
             successAlert.setTitle("Sign Up Successful");

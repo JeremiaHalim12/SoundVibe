@@ -20,7 +20,7 @@ import process.repositories.UserRepository;
 //import process.usecases.user.UserLogin;
 import org.controlsfx.control.Notifications;
 import javafx.util.Duration;
-
+import process.usecases.user.UserLogin;
 
 
 import java.io.IOException;
@@ -72,16 +72,12 @@ public class LoginController {
             return;
         }
 
-        UserRepository uRepo = new UserRepository();
-        User user = uRepo.signIn(username, password);
-
+        UserLogin userLogin = new UserLogin();
+        User user = userLogin.executeUserLogin(username, password);
 
         if (user != null) {
             // user.getUserName() untuk nama
             // user.getUserEmail() untuk email
-
-//            SoundVibeConfig config = new SoundVibeConfig(user.getUserName(),user.getUserEmail());
-//            SoundVibeLogged.setConfig(config);
 
             try {
                 // Load SoundVibeLogged.fxml
