@@ -106,14 +106,21 @@ public class LikedSongController {
     Button SignIn;
     @FXML
     public void signInButtonAction(ActionEvent event) throws IOException {
-        Stage loginStage = new Stage();
-        FXMLLoader loader = new FXMLLoader(SoundVibe.class.getResource("LoginPage.fxml"));
-        Parent root = loader.load();
-        Scene newScene = new Scene(root, 600, 400);
-        loginStage.setScene(newScene);
-        loginStage.initModality(Modality.APPLICATION_MODAL);
-        loginStage.setTitle("Login Page");
-        loginStage.show();
+        try {
+            // Load LoginPage.fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginPage.fxml"));
+            Parent loginPageParent = loader.load();
+
+            // Access the current stage
+            Stage currentStage = (Stage) SignIn.getScene().getWindow();
+            currentStage.setTitle("Login to SoundVibe");
+
+            // Set the new scene on the current stage
+            currentStage.setScene(new Scene(loginPageParent));
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Handle any exception that might occur during the loading of the LoginPage.fxml
+        }
     }
 
     // Button SignUp
@@ -129,6 +136,7 @@ public class LikedSongController {
 
             // Access the current stage
             Stage currentStage = (Stage) SignUp.getScene().getWindow();
+            currentStage.setTitle("SignUp to SoundVibe");
 
             // Set the new scene on the current stage
             currentStage.setScene(new Scene(loginPageParent));

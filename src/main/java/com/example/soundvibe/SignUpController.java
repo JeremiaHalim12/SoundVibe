@@ -38,6 +38,7 @@ public class SignUpController {
 
             // Access the current stage
             Stage currentStage = (Stage) cancel.getScene().getWindow();
+            currentStage.setTitle("SoundVibe");
 
             // Set the new scene on the current stage
             currentStage.setScene(new Scene(loginPageParent));
