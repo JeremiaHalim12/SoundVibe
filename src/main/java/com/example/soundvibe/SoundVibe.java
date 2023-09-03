@@ -33,7 +33,7 @@ public class SoundVibe extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SoundVibe.class.getResource("SoundVibe.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("SoundVibe");
         stage.setScene(scene);
         stage.show();
@@ -117,6 +117,7 @@ public class SoundVibe extends Application {
 
             // Access the current stage
             Stage currentStage = (Stage) SignIn.getScene().getWindow();
+            currentStage.setTitle("Login to SoundVibe");
 
             // Set the new scene on the current stage
             currentStage.setScene(new Scene(loginPageParent));
@@ -139,6 +140,7 @@ public class SoundVibe extends Application {
 
             // Access the current stage
             Stage currentStage = (Stage) SignUp.getScene().getWindow();
+            currentStage.setTitle("SignUp to SoundVibe");
 
             // Set the new scene on the current stage
             currentStage.setScene(new Scene(loginPageParent));
