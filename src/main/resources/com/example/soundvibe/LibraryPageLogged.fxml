@@ -67,8 +67,8 @@
         </Label>
         <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="16.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
             <image>
-<!--                <Image url="C:\xampp\htdocs\SoundVibe\src\asset\download.jpeg" />-->
-                <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\download.jpeg" />
+                <Image url="C:\xampp\htdocs\SoundVibe\src\asset\download.jpeg" />
+<!--                <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\download.jpeg" />-->
 <!--                <Image url="D:\KULIAH\SA 2\Pemrograman Terapan\SoundVibe\src\asset\download.jpeg" />-->
             </image>
         </ImageView>
@@ -121,12 +121,14 @@
          </font></Button>
       <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="304.0" layoutY="524.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\shuffle.png" />
+<!--            <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\shuffle.png" />-->
+             <Image url="C:\xampp\htdocs\SoundVibe\src\asset\shuffle.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="488.0" layoutY="526.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\repeat.png" />
+<!--            <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\repeat.png" />-->
+             <Image url="C:\xampp\htdocs\SoundVibe\src\asset\repeat.png" />
          </image>
       </ImageView>
       <Rectangle fill="WHITE" height="21.0" layoutX="351.0" layoutY="527.0" smooth="false" stroke="TRANSPARENT" strokeType="INSIDE" width="3.0" />

@@ -149,8 +149,8 @@
       <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="16.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
          <image>
 <!--            <Image url="D:\KULIAH\SA 2\Pemrograman Terapan\SoundVibe\src\asset\download.jpeg" />-->
-<!--             <Image url="C:\xampp\htdocs\SoundVibe\src\asset\download.jpeg" />-->
-             <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\download.jpeg" />
+             <Image url="C:\xampp\htdocs\SoundVibe\src\asset\download.jpeg" />
+<!--             <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\download.jpeg" />-->
          </image>
       </ImageView>
       <Button fx:id="SignIn" layoutX="642.0" layoutY="15.0" mnemonicParsing="false" onAction="#signInButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Sign In">
@@ -164,7 +164,8 @@
       <Button fx:id="artistBottom" layoutX="82.0" layoutY="548.0" mnemonicParsing="false" onAction="#artistButtonAction" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Yura Yunita" />
       <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="304.0" layoutY="524.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\shuffle.png" />
+<!--            <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\shuffle.png" />-->
+             <Image url="C:\xampp\htdocs\SoundVibe\src\asset\shuffle.png" />
          </image>
       </ImageView>
       <Polygon fill="WHITE" layoutX="363.0" layoutY="548.0" points="-50.0, 40.0, 50.0, 40.0, 0.0, -60.0" rotate="-90.0" scaleX="0.2" scaleY="0.2" scaleZ="0.5" stroke="TRANSPARENT" strokeType="INSIDE" />
@@ -175,7 +176,8 @@
       <Polygon layoutX="414.0" layoutY="547.0" points="-50.0, 40.0, 50.0, 40.0, 0.0, -60.0" rotate="90.0" scaleX="0.15" scaleY="0.15" stroke="TRANSPARENT" strokeType="INSIDE" />
       <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="488.0" layoutY="526.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\repeat.png" />
+<!--            <Image url="C:\xampp\htdocs\SoundVibe\SoundVibe\src\asset\repeat.png" />-->
+             <Image url="C:\xampp\htdocs\SoundVibe\src\asset\repeat.png" />
          </image>
       </ImageView>
    </children>
