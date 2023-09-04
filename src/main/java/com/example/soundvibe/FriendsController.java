@@ -11,30 +11,25 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Album;
 import model.Artist;
 import model.Song;
+import model.User;
 import process.usecases.album.AlbumGetById;
 import process.usecases.artist.ArtistGet;
 import process.usecases.artist.ArtistGetById;
 import process.usecases.song.SongGet;
+import process.usecases.user.UserGetById;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.util.List;
 
-public class SoundVibeLogged extends Application {
-//    private static SoundVibeConfig config;
-//
-//    public static void setConfig(SoundVibeConfig config) {
-//        SoundVibeLogged.config = config;
-//    }
+public class FriendsController extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SoundVibeLogged.class.getResource("SoundVibeLogged.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(FriendsController.class.getResource("SoundVibeLogged.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         stage.setTitle("SoundVibe");
         stage.setScene(scene);
@@ -53,76 +48,73 @@ public class SoundVibeLogged extends Application {
         label.setText(username);
     }
 
-    @FXML
-    private ListView list1;
+//    @FXML
+//    private ListView list1;
 
     // VBOX ARTIST, SONG, DURATION, ALBUM
-    @FXML
-    private VBox vboxArtists, vboxSongs, vboxDurations, vboxAlbums;
+//    @FXML
+//    private VBox vboxSongs;
 
     // GET FROM USECASES
-    private final Artist[] artists = new ArtistGet().exexuteArtistGet();
-    private final Song[] songs = new SongGet().executeSongGet();
-    private final AlbumGetById albumGetter = new AlbumGetById();
-    private final ArtistGetById artistGetter = new ArtistGetById();
+//    private final Song[] songs = new SongGet().executeSongGet();
 
     // INITIALIZE VBOX CONTENT FROM ARRAY
     @FXML
     public void initialize() {
-        addLabelsToVBox(vboxArtists, artists);
-        addArtistLabels(vboxArtists, songs);
-        addLabelsToVBox(vboxSongs, songs);
-        addAlbumLabels(vboxAlbums, songs);
-        addDurationLabels(vboxDurations, songs);
+//        addLabelsToVBox(vboxSongs, songs);
 
 //        String name = config.getName();
 //        label.setText(name);
     }
 
     // ALL LABELS TO VBOX
-    private void addLabelsToVBox(VBox vbox, Object[] data) {
-        for (Object item : data) {
-            if (item instanceof Song) {
-                Song song = (Song) item;
-                Label label = new Label(song.getSongTitle());
-                label.setStyle("-fx-padding: 0 0 5 0;");
-                vbox.getChildren().add(label);
+//    private void addLabelsToVBox(VBox vbox, Object[] data) {
+//        for (Object item : data) {
+//            if (item instanceof Song) {
+//                Song song = (Song) item;
+//                Label label = new Label(song.getSongTitle());
+//                label.setStyle("-fx-padding: 0 0 5 0;");
+//                vbox.getChildren().add(label);
+//            }
+//        }
+//    }
+
+    // SEARCH
+    @FXML
+    TextField textFieldSearch;
+
+    @FXML
+    Button search;
+
+    private UserGetById userGetById = new UserGetById();
+
+    @FXML
+    Label labelllll;
+
+    @FXML
+    private void handleSearchButtonClick(ActionEvent event) {
+        String usernameToSearch = textFieldSearch.getText();
+
+        if (!usernameToSearch.isEmpty()) {
+            User user = userGetById.executeUserGetById(usernameToSearch);
+
+            if (user != null) {
+                // User found, do something with the user object
+//                System.out.println("User found: " + user.getUserName());
+                labelllll.setText(user.getUserName());
+            } else {
+                // User not found, handle accordingly
+//                System.out.println("User not found.");
+                labelllll.setText("User not found.");
             }
+        } else {
+            // Handle empty search field input
+//            System.out.println("Please enter a username to search.");
+            labelllll.setText("Please enter a username to search.");
         }
     }
 
-    private void addArtistLabels(VBox vbox, Song[] songs) {
-        for (Song song : songs) {
-            Album album = albumGetter.executeAlbumGetById(song.getSongAlbum());
-            if (album != null) {
-                Artist artist = artistGetter.executeArtistGetById(album.getAlbumArtist());
-                if (artist != null) {
-                    Label label = new Label(artist.getArtistName());
-                    label.setStyle("-fx-padding: 0 0 5 0;");
-                    vbox.getChildren().add(label);
-                }
-            }
-        }
-    }
 
-    private void addAlbumLabels(VBox vbox, Song[] songs) {
-        for (Song song : songs) {
-            Album album = albumGetter.executeAlbumGetById(song.getSongAlbum());
-            if (album != null) {
-                Label label = new Label(album.getAlbumName());
-                label.setStyle("-fx-padding: 0 0 5 0;");
-                vbox.getChildren().add(label);
-            }
-        }
-    }
-
-    private void addDurationLabels(VBox vbox, Song[] songs) {
-        for (Song song : songs) {
-            Label label = new Label(song.getSongDuration());
-            label.setStyle("-fx-padding: 0 0 5 0;");
-            vbox.getChildren().add(label);
-        }
-    }
 
     // Button SignOut
     @FXML
@@ -210,31 +202,6 @@ public class SoundVibeLogged extends Application {
 
             // Access the current stage
             Stage currentStage = (Stage) likedSongButton.getScene().getWindow();
-
-            // Set the new scene on the current stage
-            currentStage.setScene(new Scene(loginPageParent));
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Handle any exception that might occur during the loading of the LoginPage.fxml
-        }
-    }
-
-    // Button Artist (Go to Artist Page)
-    @FXML
-    Button friendsButton;
-
-    @FXML
-    private void friendsButtonAction() {
-        try {
-            // Load ArtistPage.fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FriendsPage.fxml"));
-            Parent loginPageParent = loader.load();
-
-            FriendsController friendsController = loader.getController();
-            friendsController.displayName(pageUsername, pageUseremail, pagePassword);
-
-            // Access the current stage
-            Stage currentStage = (Stage) friendsButton.getScene().getWindow();
 
             // Set the new scene on the current stage
             currentStage.setScene(new Scene(loginPageParent));

@@ -170,5 +170,26 @@ public class UserRepository {
         return updatedUser;
     }
 
+    public User userGetByString(String username) {
+        try {
+            String query = "SELECT * FROM user WHERE userName LIKE ?";
+            PreparedStatement ps = JDBCConnection.getConnection().prepareStatement(query);
+            ps.setString(1,   username + "%");
+
+            ResultSet res = ps.executeQuery();
+            if (res.next()) {
+                int userId = res.getInt("userId");
+                String userName = res.getString("userName");
+                String userEmail = res.getString("userEmail");
+                String userPassword = res.getString("userPassword");
+                return new User(userId, userName, userEmail, userPassword);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return null;
+    }
+
 
 }

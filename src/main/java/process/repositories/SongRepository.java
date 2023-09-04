@@ -76,6 +76,32 @@ public class SongRepository {
         return songs.toArray(new Song[0]);
     }
 
+    public Song[] getSongsBySearch(String startingString) {
+        List<Song> songs = new ArrayList<>();
+
+        try {
+            String query = "SELECT * FROM song WHERE songTitle LIKE ?";
+            PreparedStatement ps = JDBCConnection.getConnection().prepareStatement(query);
+            ps.setString(1, startingString + "%"); // Filter songs starting with startingString
+
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+                String title = resultSet.getString("songTitle");
+                String duration = resultSet.getString("songDuration");
+                String album = resultSet.getString("album_albumId");
+
+                Song song = new Song(title, duration, album);
+                songs.add(song);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return songs.toArray(new Song[0]);
+    }
+
+
 //    public Song[] getSongs() {
 //        return songs;
 //    }
