@@ -39,6 +39,7 @@ public class SoundVibe extends Application {
         stage.show();
     }
 
+
     @FXML
     private ListView list1;
 
